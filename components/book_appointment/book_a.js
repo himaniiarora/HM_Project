@@ -1,98 +1,61 @@
-const doctors = [
-    {
-        name: "Dr. Ramesh Sharma",
-        speciality: "Cardiologist"
-    },
-    {
-        name: "Dr. Sunita Mehta",
-        speciality: "Dermatologist"
-    },
-    {
-        name: "Dr. Arvind Kumar",
-        speciality: "Orthopedist"
-    },
-    {
-        name: "Dr. Priya Das",
-        speciality: "Pediatrician"
-    },
-    {
-        name: "Dr. Anil Kapoor",
-        speciality: "Cardiologist"
-    },
-    {
-        name: "Dr. Meena Rao",
-        speciality: "Orthopedist"
-    }
-];
+document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-// Populate the doctor dropdown
-function populateDoctors() {
-    const doctorSelect = document.getElementById('doctor');
-    doctorSelect.innerHTML = '<option value="">Select Doctor</option>'; // Clear existing options
+  const name = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const specialization = document.getElementById("specialization").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
 
-    doctors.forEach(doctor => {
-        const option = document.createElement('option');
-        option.value = doctor.name;
-        option.textContent = `${doctor.name} (${doctor.speciality})`;
-        doctorSelect.appendChild(option);
-    });
-}
+  if (!name || !email || !phone || !specialization || !date || !time) {
+    alert("⚠️ Please fill in all required fields!");
+    return;
+  }
 
-// Handle form submission
-document.getElementById('appointmentForm').addEventListener('submit', function (e) {
-    e.preventDefault(); 
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("⚠️ Please enter a valid 10-digit phone number!");
+    return;
+  }
 
-    const formData = new FormData(this);
-    const appointmentDetails = {};
-
-    for (const [key, value] of formData.entries()) {
-        appointmentDetails[key] = value;
-    }
-
-    console.log('Appointment Details:', appointmentDetails);
-    alert('Appointment booked successfully!');
-    this.reset(); // Clear the form
+  document.querySelector(".form-container").style.display = "none";
+  document.getElementById("success-message").classList.remove("hidden");
 });
 
-// Populate doctors on page load
-document.addEventListener('DOMContentLoaded', populateDoctors);
+document.getElementById("backBtn").addEventListener("click", function () {
+  window.location.href = "../../index.html";
+});
 
-function bookAppointment(doctorName) {
-    // Find the selected doctor's details
-    const selectedDoctor = doctors.find(doctor => doctor.name === doctorName);
+window.addEventListener("DOMContentLoaded", () => {
+  const storedDoctor = JSON.parse(localStorage.getItem("selectedDoctor"));
 
-    if (selectedDoctor) {
-        // Redirect to the book-appointment page with doctor details as URL parameters
-        window.location.href = `book-appointment.html?name=${encodeURIComponent(selectedDoctor.name)}&speciality=${encodeURIComponent(selectedDoctor.speciality)}`;
+  if (storedDoctor) {
+    // Prefill Doctor Name
+    document.getElementById("doctor").value = storedDoctor.name;
+
+    // ✅ Match specialization by trimming and ignoring case
+    const specializationSelect = document.getElementById("specialization");
+    const target = storedDoctor.speciality.trim().toLowerCase();
+
+    let matched = false;
+    for (let option of specializationSelect.options) {
+      if (option.value.trim().toLowerCase() === target) {
+        option.selected = true;
+        matched = true;
+        break;
+      }
     }
-}
 
-
-// Function to get URL parameters
-function getUrlParams() {
-    const params = {};
-    const queryString = window.location.search.substring(1);
-    const pairs = queryString.split('&');
-
-    pairs.forEach(pair => {
-        const [key, value] = pair.split('=');
-        params[decodeURIComponent(key)] = decodeURIComponent(value);
-    });
-
-    return params;
-}
-
-// Pre-fill the form with doctor details from URL parameters
-function prefillForm() {
-    const params = getUrlParams();
-    if (params.name && params.speciality) {
-        document.getElementById('doctor').value = params.name;
-        document.getElementById('specialization').value = params.speciality;
+    // Optional confirmation message
+    const msgBox = document.getElementById("selectedDoctorMsg");
+    if (msgBox) {
+      msgBox.textContent = matched
+        ? `Booking appointment with ${storedDoctor.name} (${storedDoctor.speciality})`
+        : `Booking appointment with ${storedDoctor.name}`;
+      msgBox.classList.remove("hidden");
     }
-}
 
-// Populate doctors and pre-fill form on page load
-document.addEventListener('DOMContentLoaded', () => {
-    populateDoctors();
-    prefillForm();
+    // Remove data after loading
+    localStorage.removeItem("selectedDoctor");
+  }
 });

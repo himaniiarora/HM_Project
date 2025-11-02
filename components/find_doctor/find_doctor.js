@@ -73,18 +73,18 @@ function displayDoctors(filteredDoctors) {
     filteredDoctors.forEach(doctor => {
         const card = document.createElement('div');
         card.className = 'doctor-card';
-        // card.innerHTML = `
-        //     <img src="${doctor.image}" alt="${doctor.name}">
-        //     <div class="details">
-        //         <h2>${doctor.name}</h2>
-        //         <p><strong>Speciality:</strong> ${doctor.speciality}</p>
-        //         <p>${doctor.degree} - ${doctor.experience}</p>
-        //         <p>Languages: ${doctor.languages.join(', ')}</p>
-        //         <p>Available: ${doctor.availability}</p>
-        //         <p>Fees: ${doctor.fees}</p>
-        //         <button onclick="bookAppointment('${doctor.name}')">Book Appointment</button>
-        //     </div>
-        // `;
+        card.innerHTML = `
+            <img src="${doctor.image}" alt="${doctor.name}">
+            <div class="details">
+                <h2>${doctor.name}</h2>
+                <p><strong>Speciality:</strong> ${doctor.speciality}</p>
+                <p>${doctor.degree} - ${doctor.experience}</p>
+                <p>Languages: ${doctor.languages.join(', ')}</p>
+                <p>Available: ${doctor.availability}</p>
+                <p>Fees: ${doctor.fees}</p>
+                <button onclick="bookAppointment('${doctor.name}', '${doctor.speciality}')">Book Appointment</button>
+            </div>
+        `;
 
         card.innerHTML = `
     <div class="image-container">
@@ -127,7 +127,19 @@ function clearFilters() {
 }
 
 function bookAppointment(doctorName) {
-    alert(`Booking appointment with ${doctorName}`);
+    // Find selected doctor
+    const doctor = doctors.find(doc => doc.name === doctorName);
+
+    if (doctor) {
+        // Store selected doctor details in localStorage
+        localStorage.setItem("selectedDoctor", JSON.stringify({
+            name: doctor.name,
+            speciality: doctor.speciality
+        }));
+
+        // Redirect to Book Appointment page
+        window.location.href = "../book_appointment/book_a.html";
+    }
 }
 
 // Initial display of all doctors

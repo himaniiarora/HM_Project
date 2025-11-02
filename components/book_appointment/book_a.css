@@ -1,104 +1,121 @@
-/* body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-.appointment-container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px;
+body {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #0a192f;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 15px;
+.header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-label {
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
+.header h1 {
+  font-size: 2.5rem;
+  color: #004aad;
 }
 
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.header p {
+  color: #3b4d66;
+  margin-top: 10px;
+  font-size: 1rem;
 }
 
-button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    margin-top: 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #0056b3;
-} */
-
-
-/*2nd try code*/
-/* Appointment Form */
-.appointment-form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.form-container {
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #0a192f;
 }
 
 .form-group input,
 .form-group select {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #bbdefb;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-    border-color: #6a11cb;
+  border-color: #2196f3;
+  box-shadow: 0 0 6px rgba(33, 150, 243, 0.3);
 }
 
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background: #6a11cb;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background: #2575fc;
+.btn:hover {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+}
+
+/* Success message styling */
+#success-message {
+  background: #ffffff;
+  text-align: center;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  max-width: 500px;
+}
+
+#success-message.hidden {
+  display: none;
+}
+
+#success-message h2 {
+  color: #2196f3;
+  margin-bottom: 10px;
+}
+
+#backBtn {
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#backBtn:hover {
+  background: #1565c0;
 }
