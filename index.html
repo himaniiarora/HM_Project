@@ -1,73 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Management System</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HMS | Hospital Management System</title>
+  <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>HMS</h1>
-            </div>
-            <form class="search-bar" action="#" method="get">
-                <input type="text" placeholder="Search Doctor or Hospital Here" name="search" class="search-input">
-                <button type="submit" class="search-btn">Search</button>
-            </form>
-            <ul class="nav-links">
-                <li><a href="components/login/login.html">Login</a></li>
-                <li><a href="components/register/index.html">Register</a></li>
-                <li><a href="components/contact/contact.html">Contact Us</a></li>
-            </ul>
-            
-        </nav>
-    </header>
+  <div id="nav">
+    <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="HMS Logo" />
+    <h4>Book Appointment</h4>
+    <h4>Find Doctor</h4>
+    <h4>Health Checkups</h4>
+    <h4>Online Consultation</h4>
+    <h4>Contact</h4>
+  </div>
 
-    <section class="front-page">
-        <div class="overlay">
-            <div class="content">
-                <h2>Welcome to Our Healthcare System</h2>
-                <h3>Your Health, Our Priority</h3>
-                <p>Experience top-notch medical care from our expert doctors and state-of-the-art facilities. We are here to provide the best treatment for you and your loved ones.</p>
-                <a href="components/book_appointment/book_a.html" class="btn-book">Book an Appointment</a>
-            </div>
-        </div>
-    </section>
 
-    <div class="service-container">
-        <div class="service-card">
-            <a href="components/book_appointment/book_a.html">
-            <i class="fas fa-calendar-check"></i>
-            <h3>Book Appointment</h3>
-            </a>
+  <div id="main">
+
+    <!-- PAGE 1 -->
+    <div id="front-page">
+      <div id="page1">
+        <h1>CARE. COMPASSION. CURE.</h1>
+        <h2>WELCOME TO HMS HOSPITAL</h2>
+        <p>We bring together technology and trusted healthcare professionals to provide top-quality care,
+          personalized treatment plans, and a seamless experience — all in one platform.</p>
+        <div id="arrow">
+          <i class="ri-arrow-down-line"></i>
         </div>
-        <div class="service-card">
-            <a href="components/find_doctor/find_doctor.html">
-                <i class="fas fa-user-md"></i>
-                <h3>Find Doctor</h3>
-            </a>
-        </div>
-        
-        <!-- <div class="service-card">
-            <i class="fas fa-hospital"></i>
-            <h3>Find Hospital</h3>
-        </div> -->
-        <div class="service-card">
-            <i class="fas fa-notes-medical"></i>
-            <h3>Book Health Check-Up</h3>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-laptop-medical"></i>
-            <h3>Consult Online</h3>
-        </div>
-        <div class="service-card">
-            <i class="fas fa-pills"></i>
-            <h3>Buy Medicine</h3>
-        </div>
+      </div>
     </div>
-    
+
+
+    <!-- PAGE 2 -->
+    <div id="page2">
+      <div id="scroller">
+        <div id="scroller-in">
+          <h4>BOOK APPOINTMENT</h4>
+          <h4>FIND DOCTOR</h4>
+          <h4>ONLINE CONSULTATION</h4>
+          <h4>24/7 SUPPORT</h4>
+          <h4>MODERN FACILITIES</h4>
+        </div>
+        <div id="scroller-in">
+          <h4>BOOK APPOINTMENT</h4>
+          <h4>FIND DOCTOR</h4>
+          <h4>ONLINE CONSULTATION</h4>
+          <h4>24/7 SUPPORT</h4>
+          <h4>MODERN FACILITIES</h4>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div id="about-us">
+        <img src="https://cdn-icons-png.flaticon.com/512/4320/4320343.png" alt="Doctors" />
+        <div id="about-us-in">
+          <h3>ABOUT HMS</h3>
+          <p>HMS is a unified platform designed to make healthcare more accessible, efficient, and transparent.
+            Our mission is to simplify the patient experience — from booking appointments to finding doctors,
+            all with just one click. Experience care like never before.</p>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" alt="Hospital" />
+      </div>
+
+      <!-- Service Cards -->
+      <div id="cards-container">
+        <div class="card" id="card1" data-title="Book Appointment">
+          <div class="overlay">
+            <h4>Book Appointment</h4>
+            <p>Schedule your appointments online with trusted specialists across multiple departments.</p>
+          </div>
+        </div>
+        <div class="card" id="card2" data-title="Find Doctor">
+          <div class="overlay">
+            <h4>Find Doctor</h4>
+            <p>Browse experienced doctors by specialty, language, or experience level — instantly.</p>
+          </div>
+        </div>
+        <div class="card" id="card3" data-title="Online Consultation">
+          <div class="overlay">
+            <h4>Online Consultation</h4>
+            <p>Consult top doctors from the comfort of your home through secure video calls.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="blue-div">
+        <h4>SIGN UP FOR HEALTH UPDATES AND SPECIAL OFFERS STRAIGHT TO YOUR INBOX</h4>
+      </div>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div id="page3">
+      <p>
+        “Your health is not an expense, it’s an investment in your happiness and future.”
+      </p>
+      <img id="colon1" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg" alt="" />
+      <img id="colon2" src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg" alt="" />
+    </div>
+
+    <!-- PAGE 4 -->
+    <div id="page4">
+      <h1>WHAT ARE YOU WAITING FOR?</h1>
+
+      <div class="elem"
+        style="background-image: url('https://www.shutterstock.com/image-vector/book-your-doctor-online-patient-600nw-1776815561.jpg');">
+        <h2>BOOK APPOINTMENT</h2>
+      </div>
+
+      <div class="elem"
+        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7dE-4BPtbro3p1dV33pvrGEcrFAF6XEn0iQ&s');">
+        <h2>FIND DOCTOR</h2>
+      </div>
+
+      <div class="elem"
+        style="background-image: url('https://www.dhani.com/services/wp-content/uploads/2020/10/xhome-hero-mobile.png.pagespeed.ic.iPj_0lkd3C.png');">
+        <h2>ONLINE CONSULTATION</h2>
+      </div>
+
+      <div class="elem"
+        style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZv8We5aOHBPniZCkJSGjKFAdThM8kMIw_eQ&s');">
+        <h2>BUY MEDICINE</h2>
+      </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <div id="footer">
+      <img src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg" alt="" />
+      <div id="f1">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" alt="HMS Logo" />
+      </div>
+      <div id="f2">
+        <h3>Book Appointment</h3>
+        <h3>Find Doctor</h3>
+        <h3>Consult Online</h3>
+      </div>
+      <div id="f3">
+        <h3>24/7 Service</h3>
+        <h3>Health Packages</h3>
+        <h3>Contact Us</h3>
+      </div>
+      <div id="f4">
+        <h4>
+          123 Wellness Avenue <br />
+          New Delhi, India <br />
+          TEL: +91 99999 88888 <br />
+          Email: info@hms.com <br />
+        </h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
